@@ -6,6 +6,7 @@ import 'zipcodes'
 const zipcodes = require('zipcodes');
 // added an npm for looking up lattitude and longitude by zipcode 'https://www.npmjs.com/package/zipcodes'
 import { Doctor } from './doctor.js';
+import { BDApi } from './BDApi.js';
 
 $(document).ready(function() {
   const doctor = new Doctor;
@@ -14,42 +15,24 @@ $(document).ready(function() {
     event.preventDefault();
     const issue = $('#issue').val();
     const zip = $('#zipcode').val();
-    const zipBreakdown = zipcodes.lookup(zipcode)
+    const zipBreakdown = zipcodes.lookup(zip);
     $('#.doctor_result').empty();
+    console.log(issue);
+    console.log(zip);
+    console.log(zipBreakdown);
+  });
+
+  $('#doctorNameSubmit').click(function(){
+    event.preventDefault();
+    const firstName = $('#firstNameInput').val();
+    const lastName = $('#lastNameInput').val();
+    const userZipArea = $('#zipcode').val();
+    const zipBreakdown = zipcodes.lookup(userZipArea);
+  });
 
 
-  function doctorIssueLocation(issue, lattitude, longitude) {
-    let promise = doctor.findDoctor(issue, lattitude, longitude);
-    promise.then(function(response) {
-      let body = JSON.parse(response);
-      if (body.data.length == 0) {
-        $("#.doctor_result").text("Sorry, there are no doctors that fit the entered data")
-      }
-      else {
-        body.data.forEach(function(element) {
-          let acceptingNewPatients = element.practices[0].accepts_new_patients
-          function openOrClosed(value) {
-            let answer;
-            if (value == true) {
-              answer = "Yes, they are accepting new patients at this time."
-            }
-            else {answer == "No, we are sorry but they are not accepting any new patients at this time."}
-            return answer
-            }
-
-
-
-          });
-
-        }
-      })
-    };
-
-    },
-
-
-    function(error) {
-      $('.showErrors').text(`There was an error processing your request: ${error.message}`);
-    })
+  function(error) {
+    $('.showErrors').text(`There was an error processing your request: ${error.message}`);
+  };
 
 });

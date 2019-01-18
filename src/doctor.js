@@ -1,35 +1,31 @@
-class Doctor {
-  constructor(name) {
+class Doctor  {
+constructor(name) {
     this.name = name;
   }
+function doctorIssueLocation(issue, lattitude, longitude) {
+  let promise = doctor.findDoctor(issue, lattitude, longitude);
+  promise.then(function(response) {
+    let body = JSON.parse(response);
+    if (body.data.length == 0) {
+      $("#.doctor_result").text("Sorry, there are no doctors that fit the entered data")
+    } else {
+      body.data.forEach(function(element) {
+        let acceptingNewPatients = element.practices[0].accepts_new_patients
+        function openOrClosed(value) {
+          let answer;
+          if (value == true) {
+            answer = "Yes, they are accepting new patients at this time."
+          }
+          else {answer == "No, we are sorry but they are not accepting any new patients at this time."}
+          return answer
+          }
 
-  findDoctor(lattitude, longitude, issue) {
-    let promise = new Promise(function(resolve, reject) {
-      let request = new XMLHttpRequest();
-      let url = 'https://api.betterdoctor.com/2016-03-01/practices?location=${lattitude}%2C${longitude}%2C100&user_key=${process.env.exports.apiKey}';
-      request.onload = function() {
-        if (this.status === 200) {
-          resolve(request.response);
-        } else {
-          reject(Error(request.statusText));
-        }
+
+        })
+
       }
-      request.open("GET", url, true);
-      request.send();
-    });
-
+    })
   }
+};
 
-  detailsDoctor() {
-    let doctor_uid = '';
-    let url = 'https://api.betterdoctor.com/2016-03-01/doctors/' + doctor_uid + '?user_key=' + '${process.env.exports.apiKey}';
-
-    $.get(url, function (doctor_search) {
-      let template = Handlebars.compile(document.getElementById('doc-template').innerHTML);
-      document.getElementById('doctor_result').innerHTML = template(doctor_search);
-    });
-  }
-
-
-}
 export { Doctor };
