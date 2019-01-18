@@ -16,7 +16,8 @@ $(document).ready(function() {
     const issue = $('#issue').val();
     const zip = $('#zipcode').val();
     const zipBreakdown = zipcodes.lookup(zip);
-    $('#.doctor_result').empty();
+    $('#doctor_result').empty();
+    const drIssueListing = BDApi.findDoctor(issue, zipBreakdown.lattitude, zipBreakdown.longitude);
     console.log(issue);
     console.log(zip);
     console.log(zipBreakdown);
@@ -26,13 +27,8 @@ $(document).ready(function() {
     event.preventDefault();
     const firstName = $('#firstNameInput').val();
     const lastName = $('#lastNameInput').val();
-    const userZipArea = $('#zipcode').val();
-    const zipBreakdown = zipcodes.lookup(userZipArea);
+    $('#doctor_result').empty();
+    const drNameListing = BDApi.findDoctorByName(firstName, lastName);
   });
-
-
-  function(error) {
-    $('.showErrors').text(`There was an error processing your request: ${error.message}`);
-  };
 
 });
