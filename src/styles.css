@@ -1,13 +1,7 @@
-#game-area {
+#inquire-area {
+  text-align: center;
+}
+
+#result-area {
   display: none;
-}
-
-.letter {
-  float: left;
-  margin: 2px;
-  font-size: 25px;
-}
-
-ul {
-  list-style: none;
 }
