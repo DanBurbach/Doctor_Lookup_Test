@@ -4,9 +4,9 @@
   "description": "#### Calculates a users age based off of what planet they are on.",
   "main": "index.js",
   "scripts": {
+    "start": "npm run build; webpack-dev-server --open --mode development",
     "test": "karma start karma.conf.js",
     "build": "webpack --mode development",
-    "start": "npm run build; webpack-dev-server --open --mode development",
     "lint": "eslint src/*.js"
   },
   "keywords": [],
@@ -42,6 +42,8 @@
   "dependencies": {
     "bootstrap": "^4.2.1",
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.6"
+    "popper.js": "^1.14.6",
+    "zipcode": "^0.1.1",
+    "zipcodes": "^8.0.0"
   }
 }
