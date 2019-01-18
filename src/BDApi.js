@@ -1,3 +1,5 @@
+import { Doctor } from './doctor.js';
+
 class BDApi {
 
   findDoctor(lattitude, longitude, issue) {
