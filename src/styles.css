@@ -1,11 +1,10 @@
-#inquire-area {
-  text-align: center;
-}
-
 #result-area {
   display: none;
 }
 
+.form-input {
+  font-size: 24px;
+}
 
 body {
     font-family: ProximaNovaReg, 'Helvetica Neue', Helvetica, Arial, sans-serif;
