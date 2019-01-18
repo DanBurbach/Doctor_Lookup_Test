@@ -1,9 +1,6 @@
-export class Doctor {
-
-  constructor(name, issue) {
+class Doctor {
+  constructor(name) {
     this.name = name;
-    this.issue = issue;
-
   }
 
   findDoctor(lattitude, longitude, issue) {
@@ -41,3 +38,4 @@ export class Doctor {
 
 
 }
+export { Doctor };
