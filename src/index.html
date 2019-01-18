@@ -12,7 +12,7 @@
         <div id="inquire_issue">
           <form>
             <input type="text" name="issue" id="issue" value="Medical Issue" class="form-input" onfocus="this.value=''"><br>
-            <input type="text" name="zipcode" id="zipcode" value="Zip Code" class="form-input" onfocus="this.value=''">
+            <input type="text" name="zipcode" id="zipcode" value="Zip Code" class="form-input" onfocus="this.value=''"><br>
             <button class="btn-info" id="issueSubmit">Search By Issue</button>
           </form><br>
         </div><br>
@@ -30,13 +30,32 @@
         <h3>Your results here:</h3>
         <h5>Information provided by BetterDoctor API</h5>
         <div id="doctor_result"></div>
+        <script id="docs-template" type="text/x-handlebars-template">
+          <table>
+            <thead>
+              <th>Name</th>
+              <th>Title</th>
+              <th>Picture</th>
+            </thead>
+            <tbody>
+              {{#data}}
+              <tr>
+                <td><a href="{{attribution_url}}" target="_new">{{profile.first_name}} {{profile.last_name}}</a><br>
+                  <img src="{{ratings.0.image_url_small}}"></img></td>
+                  <td>{{profile.title}}</td>
+                  <td><img src="{{profile.image_url}}"></img></td>
+                </tr>
+                {{/data}}
+              </tbody>
+            </table>
+          </script>
+
+        </div>
+
+
+        <p id="error_message"></p><br>
 
       </div>
-
-
-      <p id="error_message"></p><br>
-
     </div>
-  </div>
-</body>
-</html>
+  </body>
+  </html>
