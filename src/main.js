@@ -4,6 +4,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Doctor } from './doctor.js';
 
 $(document).ready(function() {
+  $('#medicalIssue-name').click(function() {
+    let issue = $('#medicalIssue-input').val();
+    $('#medicalIssue-input').val("";)
+
+
+
+    promise.then(function(response) {
+      let body = JSON.parse(response);
+    }, function(error) {
+      $('.showErrors').text(`There was an error processing your request: ${error.message}`);
+    });
+  });
+
+
   $.ajax({
     url: 'https://developer.betterdoctor.com/?',
     type: 'GET',
@@ -19,7 +33,6 @@ $(document).ready(function() {
       showIssue(issue);
       showDoctor(doctor);
       $('#inquire-area').show();
-      runGame(hangman);
     },
     error: function() {
       $('#error-message').text('There was a problem proccessing your API.');
