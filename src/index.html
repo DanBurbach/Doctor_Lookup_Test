@@ -9,10 +9,13 @@
     <div class="jumbotron">
 
       <div id="inquire_area">
+
         <div id="inquire_issue">
           <form>
-            <input type="text" name="issue" id="issue" value="Medical Issue" class="form-input" onfocus="this.value=''"><br>
-            <input type="text" name="zipcode" id="zipcode" value="Zip Code" class="form-input" onfocus="this.value=''"><br>
+            <input type="text" id="query" value="Medical Issue" class="form-input" onfocus="this.value=''"><br>
+            <input type="text" id="user_location_slug" value="City and State" class="form-input" onfocus="this.value=''"><br>
+            <input type="text" id="zipcode" value="Zip Code" class="form-input" onfocus="this.value=''"><br>
+            <!-- may remove zip code look up - found the _slug condition which allows for city and state name entry -->
             <button class="btn-info" id="issueSubmit">Search By Issue</button>
           </form><br>
         </div><br>
@@ -24,6 +27,7 @@
             <button class="btn-info" id="doctorNameSubmit">Search By Doctor Name</button>
           </form>
         </div><br>
+
       </div><br>
 
       <div id="result_area">
