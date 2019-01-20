@@ -1,3 +1,4 @@
+import { apiKey } from '../.env';
 import { BDApi } from './BDApi.js';
 
 class Doctor  {
@@ -9,8 +10,10 @@ class Doctor  {
 
   findDoctor(name, query, user_location) {
     let promise = new Promise(function(resolve, reject) {
-      let request = new XMLHttpRequest();
-      let url = 'https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&query=${query}0&location_slug=or-portland&user_location_slug=${user_location_slug}&distance=15&skip=0&limit=35&accepts_new_patients=true&user_key=${apiKey}';
+      let cors = (true) ? 'https://cors-anywhere.herokuapp.com/' : '';
+      const request = new XMLHttpRequest();
+      const url = '${cors}https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&query=${query}0&location_slug=or-portland&user_location_slug=${user_location_slug}&distance=15&skip=0&limit=35&accepts_new_patients=true&user_key=${apiKey}';
+
       request.onload = function() {
         if (this.status === 200) {
           resolve(request.response);
@@ -21,15 +24,6 @@ class Doctor  {
       request.open("GET", url, true);
       request.send();
     });
-  }
-
-  function doctorIssueLocation(name, query, user_location) {
-    let promise = doctor.findDoctor(name, query, user_location);
-    promise.then(function(response) {
-      const body = JSON.parse(response);
-
-
-    })
   }
 }
 
