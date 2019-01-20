@@ -1,32 +1,50 @@
 import { BDApi } from './BDApi.js';
 
 class Doctor  {
-  constructor(name) {
+  constructor(query) {
     this.name = name;
+    this.query = query;
+    this.user_location_slug = user_location;
   }
 
-  function doctorIssueLocation(issue, lattitude, longitude) {
-    let promise = doctor.findDoctor(issue, lattitude, longitude);
-    promise.then(function(response) {
-      let body = JSON.parse(response);
-      if (body.data.length == 0) {
-        $(".doctor_result").text("Sorry, there are no doctors that fit the entered data")
-      } else {
-        body.data.forEach(function(element) {
-          let acceptingNewPatients = element.practices[0].accepts_new_patients
-          function openOrClosed(value) {
-            let answer;
-            if (value == true) {
-              answer = "Yes, they are accepting new patients at this time."
-            } else {answer == "No, we are sorry but they are not accepting any new patients at this time."}
-            return answer
-          }
-
-
-        })
-      }, function(error) {
-        $('.showErrors').text(`There was an error processing your request: ${error.message}`);
+  findDoctor(name, query, user_location) {
+    let promise = new Promise(function(resolve, reject) {
+      let request = new XMLHttpRequest();
+      let url = 'https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&query=${query}0&location_slug=or-portland&user_location_slug=${user_location_slug}&distance=15&skip=0&limit=35&accepts_new_patients=true&user_key=${apiKey}';
+      request.onload = function() {
+        if (this.status === 200) {
+          resolve(request.response);
+        } else {
+          reject(Error(request.statusText));
+        }
       }
+      request.open("GET", url, true);
+      request.send();
+    });
+  }
+
+  findDoctorByName(firstName,lastName) {
+    let promise = new Promise(function(resolve, reject) {
+      let request = new XMLHttpRequest();
+      let url = 'https://api.betterdoctor.com/2016-03-01/doctors?first_name=${firstName}&last_name=${lastName}&skip=0&limit=35&user_key=${apiKey}';
+      request.onload = function() {
+        if (this.status === 200) {
+          resolve(request.response);
+        } else {
+          reject(Error(request.statusText));
+        }
+      }
+      request.open("GET", url, true);
+      request.send();
+    });
+  }
+
+  function doctorIssueLocation(name, query, user_location) {
+    let promise = doctor.findDoctor(name, query, user_location);
+    promise.then(function(response) {
+      const body = JSON.parse(response);
+
+
     })
   }
 }
