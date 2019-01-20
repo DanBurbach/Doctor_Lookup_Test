@@ -6,54 +6,83 @@
 </head>
 <body>
   <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron jumbotron1">
+      <h2>Doctor Search</h2>
+    </div>
 
-      <div id="inquire_area">
+    <div class="jumbotron jumbotron2">
+      <div id="inquire_issue">
+        <form>
+          <h4>Enter your Medical Issue here:<h4>
+          <input type="text" id="query" class="form-input" onfocus="this.value=''"><br>
 
-        <div id="inquire_issue">
-          <form>
-            <input type="text" id="query" value="Medical Issue" class="form-input" onfocus="this.value=''"><br>
-            <input type="text" id="user_location_slug" value="City and State" class="form-input" onfocus="this.value=''"><br>
-            <button class="btn-info" id="issueSubmit">Search By Issue</button>
-          </form><br>
-        </div><br>
+          <h4>Please enter your location here:</h4>
+          <input type="text" id="user_location_city" class="form-input" onfocus="this.value=''" value="Portland"><br>
 
-        <div id="doctor_search">
-          <form>
-            <input type="text" name="firstNameInput" id="firstNameInput" value="First Name" class="form-input" onfocus="this.value=''"><br>
-            <input type="text" name="lastNameInput" id="lastNameInput" value="Last Name" class="form-input" onfocus="this.value=''"><br>
-            <button class="btn-info" id="doctorNameSubmit">Search By Doctor Name</button>
-          </form>
-        </div><br>
+          <select required id="user_location_state" class="form-input">
+            <option value="al">Alabama</option>
+            <option value="ak">Alaska</option>
+            <option value="az">Arizona</option>
+            <option value="ar">Arkansas</option>
+            <option value="ca">California</option>
+            <option value="co">Colorado</option>
+            <option value="ct">Connecticut</option>
+            <option value="de">Delaware</option>
+            <option value="fl">Florida</option>
+            <option value="ga">Georgia</option>
+            <option value="hi">Hawaii</option>
+            <option value="id">Idaho</option>
+            <option value="il">Illinois</option>
+            <option value="in">Indiana</option>
+            <option value="ia">Iowa</option>
+            <option value="ks">Kansas</option>
+            <option value="ky">Kentucky</option>
+            <option value="la">Louisiana</option>
+            <option value="me">Maine</option>
+            <option value="md">Maryland</option>
+            <option value="ma">Massachusetts</option>
+            <option value="mi">Michigan</option>
+            <option value="mn">Minnesota</option>
+            <option value="ms">Mississippi</option>
+            <option value="mo">Missouri</option>
+            <option value="mt">Montana</option>
+            <option value="ne">Nebraska</option>
+            <option value="nv">Nevada</option>
+            <option value="nh">New Hampshire</option>
+            <option value="nj">New Jersey</option>
+            <option value="nm">New Mexico</option>
+            <option value="ny">New York</option>
+            <option value="nc">North Carolina</option>
+            <option value="nd">North Dakota</option>
+            <option value="oh">Ohio</option>
+            <option value="ok">Oklahoma</option>
+            <option value="or" selected>Oregon</option>
+            <option value="pa">Pennsylvania</option>
+            <option value="ri">Rhode Island</option>
+            <option value="sc">South Carolina</option>
+            <option value="sd">South Dakota</option>
+            <option value="tn">Tennessee</option>
+            <option value="tx">Texas</option>
+            <option value="ut">Utah</option>
+            <option value="vt">Vermont</option>
+            <option value="va">Virginia</option>
+            <option value="wa">Washington</option>
+            <option value="wv">West Virginia</option>
+            <option value="wi">Wisconsin</option>
+            <option value="wy">Wyoming</option>
+          </select><br>
 
+          <h4>(Optional: Search by Doctor's Name):</h4>
+          <input type="text" id="dr-name" class="form-input" onfocus="this.value=''"><br>
+          <button class="btn-info" id="issueSubmit">Search By Issue</button>
+        </form><br>
       </div><br>
 
       <div id="result_area">
         <h3>Your results here:</h3>
         <h5>Information provided by BetterDoctor API</h5>
+
         <div id="doctor_result"></div>
-        <script id="docs-template" type="text/x-handlebars-template">
-          <table>
-            <thead>
-              <th>Name</th>
-              <th>Title</th>
-              <th>Picture</th>
-            </thead>
-            <tbody>
-              {{#data}}
-              <tr>
-                <td><a href="{{attribution_url}}" target="_new">{{profile.first_name}} {{profile.last_name}}</a><br>
-                  <img src="{{ratings.0.image_url_small}}"></img></td>
-                  <td>{{profile.title}}</td>
-                  <td><img src="{{profile.image_url}}"></img></td>
-                </tr>
-                {{/data}}
-              </tbody>
-            </table>
-          </script>
-
-        </div>
-
 
         <p id="error_message"></p><br>
 
