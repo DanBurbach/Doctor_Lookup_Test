@@ -2,10 +2,6 @@ import './styles.css';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'zipcodes'
-const zipcodes = require('zipcodes');
-// added an npm for looking up lattitude and longitude by zipcode 'https://www.npmjs.com/package/zipcodes'
-// might not use zipcodes npm, found the _slug search option in the API to search by city name and state
 import { Doctor } from './doctor.js';
 import { BDApi } from './BDApi.js';
 
@@ -32,7 +28,7 @@ $(document).ready(function() {
         body.data.forEach(function(element) {
 
 
-          
+
 
 
       function acceptingNewPatients(value) {
