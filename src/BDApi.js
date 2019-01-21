@@ -1,14 +1,14 @@
 import $ from 'jquery';
 
-export function PositiveResult(name, query, location) {
-  let promise = promise;
+export function PositiveResult(name, query, location_slug, promises) {
+  let promise = promises;
   promise.then(function(response) {
     let doctors = JSON.parse(response);
     if (doctors.data.length == 0) {
       $(".doctor_result").text("Sorry, there are no doctors that fit the entered data")
   } else {
-      doctors.data.forEach(function(doctor) {
-        let value = doctor.practices[0].accepts_new_patients
+    doctors.data.forEach(function(doctor) {
+    let value = doctor.practices[0].accepts_new_patients
     function yesOrno(response) {
     let answer;
       if (response == true) {
@@ -17,8 +17,8 @@ export function PositiveResult(name, query, location) {
       return answer
     }
       const acceptingNewPatients = yesOrno(value);
-      $(".doctor_result").append(
-            '<div class = "card">
+      $(".doctor_result").append(`
+            <div class = "card">
                 <h2>Name:</h2>
                   <h3>${doctor.profile.first_name} ${doctor.profile.last_name}, ${doctor.profile.title}</h3>
                 <h3>Address:</h3>
@@ -27,7 +27,7 @@ export function PositiveResult(name, query, location) {
                   <p>${doctor.practices[0].visit_address.state_long}</p>
                   <p>${doctor.practices[0].visit_address.zip}</p>
                 <h6>Accepting New Patients</h6>
-                  <p>${doctor.acceptingNewPatients}</p>
+                  <p>${acceptingNewPatients}</p>
                   <h3>Biography</h3>
                   ${doctor.profile.dynamic_bio}
                     <table>
@@ -43,22 +43,20 @@ export function PositiveResult(name, query, location) {
                         </td>
                       </tr>
                     </table>
-                </div>')
+                </div>`
               );
-          });
-        })
-      }
-    },
+          })
+        }
+      },
     function(error) {
-      $(".doctor_result").append('
-      <h3>Error</h3>
+      $(".doctor_result").append(`<h3>Error</h3>
         <div class = "errorBody">
         <p>An error of <code>${error}</code></p>
         <p>Please attempt your search again, thank you for your patience.</p>
-        </div>'
-    }
-  }
+        </div>`);
+      });
 }
+
 
 // export function NegativeResult(query) {
 //   let result = document.createElement('div');
@@ -69,15 +67,6 @@ export function PositiveResult(name, query, location) {
 //   <p>Your search for <code>${query}</code> returned no results.</p>
 //   <p>Please try again, thank you.</p>
 //   </div>';
-//
-//   return result;
-// }
-//
-// export function ErrorResult(error) {
-//   let result = document.createElement('div');
-//   result.innerHTML =
-//   '<div class="result">
-//   ;
 //
 //   return result;
 // }
