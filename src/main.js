@@ -6,15 +6,17 @@ import { Doctor } from './doctor.js';
 import { PositiveResult, NegativeResult, ErrorResult } from './BDApi.js';
 
 $(document).ready(function() {
-  const doctors = new Doctor
 
   $('#issueSubmit').click(function(event) {
     event.preventDefault();
-      const query = $('#query').val();
-      const location_slug = ((this.user_location_state + "-" + this.user_location_city).toLowerCase().val());
-      const name = $('#name').val();
-      $('#doctor_result').empty();
-      const promise = doctors.findDoctor(name, query, location_slug);
-      PositiveResult(name, query, location_slug, promise);
-    })
+    $('#doctor_result').text('');
+    const query = $('#query').val();
+    let location_full = $('#user_location_state').val() + "-" + $('#user_location_city').val();
+    const location_slug = location_full.toLowerCase();
+    const name = $('#name').val();
+    const doctors = new Doctor();
+    const promise = doctors.findDoctor(name, query, location_slug);
+
+    PositiveResult(name, query, location_slug, promise);
+  })
 });
