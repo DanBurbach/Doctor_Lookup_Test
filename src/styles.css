@@ -1,3 +1,7 @@
+.result_area {
+  /* display: none; */
+}
+
 .jumbotron1 {
   background-color: black !important;
   position:relative;
