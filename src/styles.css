@@ -3,13 +3,19 @@
 }
 
 .jumbotron1 {
-  background-color: black !important;
-  position:relative;
+  background-image: url('https://images.pexels.com/photos/208459/pexels-photo-208459.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  /* background-color: black !important; */
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
+  text-shadow: 2px 2px black;
 }
 
 .jumbotron2 {
-  background-color: darkgrey !important;
+  background-image: url('https://images.pexels.com/photos/326311/pexels-photo-326311.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  /* background-color: darkgrey !important; */
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
   text-shadow: 2px 2px black;
 }
