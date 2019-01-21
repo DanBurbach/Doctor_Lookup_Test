@@ -44,7 +44,7 @@ export function PositiveResult(name, query, location_slug, promises) {
                       </tr>
                     </table>
                 </div>`
-              );
+              ).show();
           })
         }
       },
@@ -53,20 +53,6 @@ export function PositiveResult(name, query, location_slug, promises) {
         <div class = "errorBody">
         <p>An error of <code>${error}</code></p>
         <p>Please attempt your search again, thank you for your patience.</p>
-        </div>`);
+        </div>`).show();
       });
 }
-
-
-// export function NegativeResult(query) {
-//   let result = document.createElement('div');
-//   result.innerHTML =
-//   '<div class = "result">
-//   <h3>No Results Found</h3>
-//   <div class = "negativeBody">
-//   <p>Your search for <code>${query}</code> returned no results.</p>
-//   <p>Please try again, thank you.</p>
-//   </div>';
-//
-//   return result;
-// }
