@@ -12,5 +12,6 @@
 
 .form-input {
   font-size: 24px;
-  color: lightgrey;
+  color: black;
+  text-shadow: 1px 1px grey;
 }
