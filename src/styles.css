@@ -1,7 +1,13 @@
-.jumbotron {
-  background-color: darkgrey;
+.jumbotron1 {
+  background-color: black !important;
   position:relative;
   color: white;
+}
+
+.jumbotron2 {
+  background-color: darkgrey !important;
+  color: white;
+  text-shadow: 2px 2px black;
 }
 
 .form-input {
