@@ -1,5 +1,5 @@
 class Doctor  {
-  findDoctor(name, query, location_slug) {
+  findDoctor(query, location_slug) {
     return new Promise(function(resolve, reject) {
     let request = new XMLHttpRequest();
     // let cors = (true) ? 'https://cors-anywhere.herokuapp.com/' : ''; (add ${cors} to front of url if cors issue)
