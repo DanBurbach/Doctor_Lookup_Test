@@ -45,7 +45,7 @@ function positiveResultIssue(query, location, promiseDoctor) {
       });
 }
 
-function positiveResultName(first_name, last_name, promiseDoctor) {
+function positiveResultName(first_name, last_name, location, promiseDoctor) {
   let promise = promiseDoctor;
   promise.then(function(response) {
     let doctors = JSON.parse(response);

@@ -4,7 +4,7 @@
   "description": "#### Calculates a users age based off of what planet they are on.",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build; webpack-dev-server --open --mode development",
+    "start": "webpack-dev-server --open --mode development",
     "test": "karma start karma.conf.js",
     "build": "webpack --mode development",
     "lint": "eslint src/*.js"
