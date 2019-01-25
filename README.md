@@ -1,5 +1,6 @@
 # Doctor Lookup
 Javascript: Week 2: Friday Test: A Doctor Lookup API program using BetterDoctor API
+#### Current status: complete
 
 #### Returns results from an API for Doctors in their city, state based off of issue entered (doctor search by city, state included)
 
