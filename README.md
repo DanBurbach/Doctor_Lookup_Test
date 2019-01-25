@@ -16,20 +16,20 @@ The user will be able to look up an issue (query) that they might have about the
 
 2. Navigate into this repo and download dependencies using manager of your choice: npm install
 
- - (You may need to run npm run build in addition) 
+ -- (You may need to run npm run build in addition) 
 
 3. You will need your own API key. To do this, you must make an account at https://developer.betterdoctor.com/
 
- - You'll also need to add it to a hidden file called '.env'. In '.env' add this line: exports.apiKey = {YOUR API KEY GOES HERE}.
+ -- You'll also need to add it to a hidden file called '.env'. In '.env' add this line: exports.apiKey = {YOUR API KEY GOES HERE}.
 
- - (If you decide to save any changes you make to this, be sure to include a .gitignore file in your main directory with .env included in the list.
+ -- (If you decide to save any changes you make to this, be sure to include a .gitignore file in your main directory with .env included in the list.
 
- - ADD/SAVE THIS BEFORE ANYTHING ELSE!
+ -- ADD/SAVE THIS BEFORE ANYTHING ELSE!
 
- - This will save your personal API code from others who might steal it).
+ -- This will save your personal API code from others who might steal it).
 
 5. Launch dev environment in browser using npm run start
- - a new browser will open with localhost:8080
+ -- a new browser will open with localhost:8080
 
 ## Known Bugs
 The doctor search return results are limited by a 20 mile radius.
