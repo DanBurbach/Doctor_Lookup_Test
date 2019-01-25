@@ -15,12 +15,17 @@ The user will be able to look up an issue (query) that they might have about the
 1. git clone: https://github.com/DanBurbach/Doctor_Lookup_Test.git
 
 2. Navigate into this repo and download dependencies using manager of your choice: npm install
+
 (You may need to run npm run build in addition) 
 
 3. You will need your own API key. To do this, you must make an account at https://developer.betterdoctor.com/
+
 You'll also need to add it to a hidden file called '.env'. In '.env' add this line: exports.apiKey = {YOUR API KEY GOES HERE}.
+
 (If you decide to save any changes you make to this, be sure to include a .gitignore file in your main directory with .env included in the list.
+
 ADD/SAVE THIS BEFORE ANYTHING ELSE!
+
 This will save your personal API code from others who might steal it).
 
 5. Launch dev environment in browser using npm run start
