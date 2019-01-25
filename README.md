@@ -34,6 +34,7 @@ Feel free to contact me with any suggestions or questions.
 
 ## Technologies Used
 HTML, CSS, Javascript, Node.js, Atom, and webpack
+
 (Special thanks to Better Doctor API, https://developer.betterdoctor.com/)
 
 ## Objectives
