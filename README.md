@@ -1,7 +1,7 @@
-# Doctor_Lookup_Test
+# Doctor Lookup
 Javascript: Week 2: Friday Test: A Doctor Lookup API program using BetterDoctor API
 
-#### Calculates a users age based off of what planet they are on.
+#### Returns results from an API for Doctors in their city, state based off of issue entered (doctor search by city, state included)
 
 #### By Daniel Burbach
 
